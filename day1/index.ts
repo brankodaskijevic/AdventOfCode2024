@@ -7,21 +7,21 @@ const compareNumbers = (a: number, b: number) => a - b
 async function readFile(file: BunFile) {
   const inputStrings = (await file.text()).split('\n')
 
-  const leftString: Array<number> = []
+  const leftStrings: Array<number> = []
   const rightStrings: Array<number> = []
   const differences: Array<number> = []
 
   for await (const line of inputStrings) {
     const splitLine = line.split('   ')
 
-    leftString.push(Number(splitLine[0]))
+    leftStrings.push(Number(splitLine[0]))
     rightStrings.push(Number(splitLine[1]))
   }
 
-  leftString.pop()
+  leftStrings.pop()
   rightStrings.pop()
 
-  const leftStringsSorted = leftString.sort(compareNumbers)
+  const leftStringsSorted = leftStrings.sort(compareNumbers)
   const rightStringsSorted = rightStrings.sort(compareNumbers)
 
   for (let i = 0; i < leftStringsSorted.length; i++) {
