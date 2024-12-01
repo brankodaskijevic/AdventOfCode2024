@@ -1,5 +1,9 @@
-function someFunction(string1: string, string2: string) {
-  return string1 + string2
+import type { BunFile } from 'bun'
+
+const input = Bun.file("./input.txt")
+
+async function readFile(file: BunFile) {
+  console.log(await file.text())
 }
 
-console.log(someFunction("branko", "ema"))
+readFile(input)
